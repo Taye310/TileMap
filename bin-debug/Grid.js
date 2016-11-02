@@ -13,7 +13,7 @@ var Grid = (function () {
         }
     }
     var d = __define,c=Grid,p=c.prototype;
-    p.setWalkable = function (i, j, state) {
+    p.setWalkable = function (j, i, state) {
         //console.log(state);
         if (state == 1) {
             this._arr[i][j].walkable = false;

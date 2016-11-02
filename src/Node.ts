@@ -14,6 +14,12 @@ class TileNode {
 	constructor(x: number, y: number) {
 		this.x = x;
 		this.y = y;
+		if(config[x][y]==1){
+            this.walkable=false;
+        }
+        if(config[x][y]==0){
+            this.walkable=true;
+        }
 	}
 
 }

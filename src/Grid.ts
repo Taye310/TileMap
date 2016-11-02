@@ -20,7 +20,7 @@ class Grid {
             }
         }
     }
-    public setWalkable(i,j,state: number) {
+    public setWalkable(j,i,state: number) {
         //console.log(state);
         if(state==1){
             this._arr[i][j].walkable=false;

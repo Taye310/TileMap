@@ -51,8 +51,7 @@ class AStar {
 				for (var j: number = startY; j <= endY; j++) {
 					var test: TileNode = this._grid._arr[i][j];
 					console.log(test.walkable);
-					if (test == currentNode || !test.walkable || !this._grid._arr[currentNode.x][test.y].walkable || !this._grid._arr[test.x][currentNode.y].walkable)
-					{ continue; }
+					if (test == currentNode || !test.walkable || Math.abs(i - currentNode.x) + Math.abs(j - currentNode.y) == 2) { continue; }
 
 					var cost: number = this._straightCost;
 					if (!((currentNode.x == test.x) || (currentNode.y == test.y))) {
