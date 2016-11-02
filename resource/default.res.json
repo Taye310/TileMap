@@ -1,0 +1,40 @@
+{
+	"groups": [
+		{
+			"keys": "bg_jpg,egret_icon_png,description_json,grass_jpg,road_jpg,chara_jpg",
+			"name": "preload"
+		}
+	],
+	"resources": [
+		{
+			"url": "assets/bg.jpg",
+			"type": "image",
+			"name": "bg_jpg"
+		},
+		{
+			"url": "assets/egret_icon.png",
+			"type": "image",
+			"name": "egret_icon_png"
+		},
+		{
+			"url": "config/description.json",
+			"type": "json",
+			"name": "description_json"
+		},
+		{
+			"url": "assets/grass.jpg",
+			"type": "image",
+			"name": "grass_jpg"
+		},
+		{
+			"url": "assets/road.jpg",
+			"type": "image",
+			"name": "road_jpg"
+		},
+		{
+			"name": "chara_jpg",
+			"type": "image",
+			"url": "assets/chara.jpg"
+		}
+	]
+}
