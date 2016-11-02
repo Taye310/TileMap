@@ -1,6 +1,7 @@
 class Grid {
     _x: number;
     _y: number;
+    
     _arr: TileNode[][]=[];
     _start: TileNode;
     _end: TileNode;
@@ -12,16 +13,23 @@ class Grid {
         for (var i: number = 0; i < this._x; i++) {
             this._arr[i] = new Array();
             for (var j: number = 0; j < this._y; j++) {
+
                 this._arr[i][j] = new TileNode(i, j);//Node(i,j)
+
+                //console.log(this._arr[i][j].walkable);
             }
         }
     }
-    public setWalkable(state: number) {
-        console.log(state);
-        if (state == 1)
-            this.walkable = false;
-        if (state == 0)
-            this.walkable == true;
+    public setWalkable(i,j,state: number) {
+        //console.log(state);
+        if(state==1){
+            this._arr[i][j].walkable=false;
+        }
+        if(state==0){
+            this._arr[i][j].walkable=true;
+        }
+        //console.log(this._arr[i][j].walkable);
+
     }
     // public setStart(arrStart: TileNode) {
     //     this._start = arrStart;

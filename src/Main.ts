@@ -133,7 +133,7 @@ class Main extends egret.DisplayObjectContainer {
             var starty: number = Math.floor(chara._body.y / 100);
             var endx: number = Math.floor(e.localX / 100);
             var endy: number = Math.floor(e.localY / 100);
-            var path: TileNode[] = map.astarPath(startx, starty, endx, endy);
+            var path: TileNode[] = map.astarPath(startx-1, starty, endx, endy);
             if (path.length > 0) {
                 chara.move(e.localX, e.localY, path);
             }

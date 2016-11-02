@@ -13,12 +13,15 @@ var Grid = (function () {
         }
     }
     var d = __define,c=Grid,p=c.prototype;
-    p.setWalkable = function (state) {
-        console.log(state);
-        if (state == 1)
-            this.walkable = false;
-        if (state == 0)
-            this.walkable == true;
+    p.setWalkable = function (i, j, state) {
+        //console.log(state);
+        if (state == 1) {
+            this._arr[i][j].walkable = false;
+        }
+        if (state == 0) {
+            this._arr[i][j].walkable = true;
+        }
+        //console.log(this._arr[i][j].walkable);
     };
     // public setStart(arrStart: TileNode) {
     //     this._start = arrStart;

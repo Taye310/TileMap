@@ -29,6 +29,7 @@ var AStar = (function () {
             for (var i = startX; i <= endX; i++) {
                 for (var j = startY; j <= endY; j++) {
                     var test = this._grid._arr[i][j];
+                    console.log(test.walkable);
                     if (test == currentNode || !test.walkable || !this._grid._arr[currentNode.x][test.y].walkable || !this._grid._arr[test.x][currentNode.y].walkable) {
                         continue;
                     }

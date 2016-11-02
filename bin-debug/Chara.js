@@ -8,8 +8,8 @@ var Character = (function (_super) {
         this._body = new egret.Bitmap;
         this._body.texture = RES.getRes("chara1_png");
         this._main.addChild(this._body);
-        this._body.width = 50;
-        this._body.height = 50;
+        this._body.width = 100;
+        this._body.height = 100;
         this._body.anchorOffsetX = this._body.width * 1;
         console.log("anchorx :" + this._body.anchorOffsetX);
         this._body.anchorOffsetY = this._body.height * 0;
@@ -39,7 +39,7 @@ var Character = (function (_super) {
             var interval = 500;
             var timer = new egret.Timer(interval, path.length - 1);
             timer.addEventListener(egret.TimerEvent.TIMER, function (e) {
-                egret.Tween.get(this._body).to({ x: (path[timer.currentCount].x + 1) * 50, y: (path[timer.currentCount].y) * 50 }, 500);
+                egret.Tween.get(this._body).to({ x: (path[timer.currentCount].x + 1) * 100, y: (path[timer.currentCount].y) * 100 }, 500);
                 console.log("target:" + path[timer.currentCount - 1].x + " , " + path[timer.currentCount - 1].y);
             }, this);
             timer.addEventListener(egret.TimerEvent.TIMER_COMPLETE, function (e) {

@@ -50,6 +50,7 @@ class AStar {
 
 				for (var j: number = startY; j <= endY; j++) {
 					var test: TileNode = this._grid._arr[i][j];
+					console.log(test.walkable);
 					if (test == currentNode || !test.walkable || !this._grid._arr[currentNode.x][test.y].walkable || !this._grid._arr[test.x][currentNode.y].walkable)
 					{ continue; }
 

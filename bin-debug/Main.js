@@ -115,7 +115,7 @@ var Main = (function (_super) {
             var starty = Math.floor(chara._body.y / 100);
             var endx = Math.floor(e.localX / 100);
             var endy = Math.floor(e.localY / 100);
-            var path = map.astarPath(startx, starty, endx, endy);
+            var path = map.astarPath(startx - 1, starty, endx, endy);
             if (path.length > 0) {
                 chara.move(e.localX, e.localY, path);
             }
