@@ -134,6 +134,9 @@ var AStar = (function () {
             return false;
         return true;
     };
+    p.getPath = function () {
+        return this._path;
+    };
     return AStar;
 }());
 egret.registerClass(AStar,'AStar');

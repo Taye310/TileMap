@@ -99,6 +99,28 @@ var Main = (function (_super) {
     p.createGameScene = function () {
         this.map = new doMap();
         this.addChild(this.map);
+        // var player = new egret.Bitmap();
+        // player.texture=RES.getRes("chara_jpg");
+        // this.addChild(player);
+        var chara = new Character(this);
+        this.addChild(chara);
+        chara.idle();
+        this.stage.addEventListener(egret.TouchEvent.TOUCH_TAP, function (e) {
+            var startx = Math.floor((chara._body.x) / 50);
+            var starty = Math.floor(chara._body.y / 50);
+            var endx = Math.floor(e.localX / 50);
+            var endy = Math.floor(e.localY / 50);
+            var path = this.map.astarPath(startx - 1, starty, endx, endy);
+            if (path.length > 0) {
+                chara.move(e.localX, e.localY, path);
+            }
+        }, this);
+    };
+    p.createBitmapByName = function (name) {
+        var result = new egret.Bitmap();
+        var texture = RES.getRes(name);
+        result.texture = texture;
+        return result;
     };
     return Main;
 }(egret.DisplayObjectContainer));

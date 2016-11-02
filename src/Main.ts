@@ -121,10 +121,29 @@ class Main extends egret.DisplayObjectContainer {
     private createGameScene(): void {
         this.map = new doMap();
         this.addChild(this.map);
-        var player = new egret.Bitmap();
-        player.texture=RES.getRes("chara_jpg");
-        this.addChild(player);
+        // var player = new egret.Bitmap();
+        // player.texture=RES.getRes("chara_jpg");
+        // this.addChild(player);
+        var chara: Character = new Character(this);
+        this.addChild(chara);
+        chara.idle();
         
+        this.stage.addEventListener(egret.TouchEvent.TOUCH_TAP, function (e: egret.TouchEvent): void {
+            var startx: number = Math.floor((chara._body.x) / 50);
+            var starty: number = Math.floor(chara._body.y / 50);
+            var endx: number = Math.floor(e.localX / 50);
+            var endy: number = Math.floor(e.localY / 50);
+            var path: TileNode[] = this.map.astarPath(startx - 1, starty, endx, endy);
+            if (path.length > 0) {
+                chara.move(e.localX, e.localY, path);
+            }
+        }, this);
+    }
+    private createBitmapByName(name: string): egret.Bitmap {
+        var result = new egret.Bitmap();
+        var texture: egret.Texture = RES.getRes(name);
+        result.texture = texture;
+        return result;
     }
 }
 

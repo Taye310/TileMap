@@ -4,6 +4,7 @@ class Grid {
      _arr: any;
      _start:TileNode;
      _end:TileNode;
+     public walkable:boolean = true;
     constructor(x: number, y: number) {
         this._x = x;
         this._y = y;
@@ -16,12 +17,22 @@ class Grid {
         }
     }
     public setWalkable(state:number){
-        
+        if(state==1)
+        this.walkable=false;
+        if(state==0)
+        this.walkable==true;
     }
     public getStart(arrStart:TileNode){
         this._start=arrStart;
     }
     public getEnd(arrEnd:TileNode){
         this._end=arrEnd;
+    }
+    public setEndPoint(x: number, y: number): void {
+        this._end = this._arr[x][y] as TileNode;
+    }
+
+    public setStartPoint(x: number, y: number): void {
+        this._start = this._arr[x][y] as TileNode;
     }
 }

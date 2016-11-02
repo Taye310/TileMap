@@ -186,4 +186,7 @@ class AStar {
 
 		return true;
 	}
+	public getPath(): TileNode[] {
+        return this._path;
+    }
 }

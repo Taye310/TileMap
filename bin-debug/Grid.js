@@ -1,5 +1,6 @@
 var Grid = (function () {
     function Grid(x, y) {
+        this.walkable = true;
         this._x = x;
         this._y = y;
         this._arr = new Array();
@@ -12,12 +13,22 @@ var Grid = (function () {
     }
     var d = __define,c=Grid,p=c.prototype;
     p.setWalkable = function (state) {
+        if (state == 1)
+            this.walkable = false;
+        if (state == 0)
+            this.walkable == true;
     };
     p.getStart = function (arrStart) {
         this._start = arrStart;
     };
     p.getEnd = function (arrEnd) {
         this._end = arrEnd;
+    };
+    p.setEndPoint = function (x, y) {
+        this._end = this._arr[x][y];
+    };
+    p.setStartPoint = function (x, y) {
+        this._start = this._arr[x][y];
     };
     return Grid;
 }());

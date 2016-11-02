@@ -27,6 +27,20 @@ class doMap extends egret.DisplayObjectContainer {
         }
 
     }
+    private astar: AStar = new AStar();
+    public astarPath(beginX: number, beginY: number, endX: number, endY: number): TileNode[] {
+
+        var path: TileNode[] = new Array();
+        this._grid.setStartPoint(beginX, beginY);
+        this._grid.setEndPoint(endX, endY);
+
+        if (this.astar.findPath(this._grid)) {
+            path = this.astar.getPath();
+        }
+
+        return path;
+
+    }
 }
 
 var config = [//map
@@ -39,7 +53,7 @@ var config = [//map
     [0, 0, 0, 0, 1, 1, 1, 0, 0, 1],
     [1, 1, 0, 0, 0, 0, 1, 0, 0, 1],
     [1, 1, 1, 1, 0, 0, 0, 1, 0, 1],
-    [0, 1, 0, 0, 0, 0, 0, 1, 0, 0]]
+    [0, 0, 0, 0, 0, 0, 0, 1, 0, 0]]
 
 // var config = [
 //     { x: 0, y: 0, image: "road.jpg" },
