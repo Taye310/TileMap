@@ -1,12 +1,12 @@
 class TileNode {
-		  x: number;
-		  y: number;
-		  f: number;
-		  g: number;
-		  h: number;
+	public x: number;
+	public y: number;
+	public f: number;
+	public g: number;
+	public h: number;
 
-		  walkable: Boolean = true;
-		  parent: TileNode;
+	public walkable: boolean = true;
+	public parent: TileNode;
 
 
 	// bitmap: egret.Bitmap = null;

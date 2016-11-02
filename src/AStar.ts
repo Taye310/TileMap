@@ -24,8 +24,8 @@ class AStar {
 		this._openList = new Array();
 		this._closedList = new Array();
 
-		this._startNode = this._grid._start;
-		this._endNode = this._grid._end;
+		this._startNode = this._grid.getStartPoint();
+		this._endNode = this._grid.getEndPoint();
 
 		this._startNode.g = 0;
 		this._startNode.h = this._heuristic(this._startNode);
@@ -50,8 +50,8 @@ class AStar {
 
 				for (var j: number = startY; j <= endY; j++) {
 					var test: TileNode = this._grid._arr[i][j];
-					if (test == currentNode || !test.walkable||!this._grid._arr[currentNode.x][test.y].walkable||!this._grid._arr[test.x][currentNode.y].walkable)
-						{continue;}
+					if (test == currentNode || !test.walkable || !this._grid._arr[currentNode.x][test.y].walkable || !this._grid._arr[test.x][currentNode.y].walkable)
+					{ continue; }
 
 					var cost: number = this._straightCost;
 					if (!((currentNode.x == test.x) || (currentNode.y == test.y))) {
@@ -93,7 +93,7 @@ class AStar {
 			// for(var i=0;i<this._openList.length;i++){
             // allf[i]=this._openList[i].f;
 			// }
-			
+
 			this._openList.sort(function (a, b) {
 				// if (a.f > b.f) {
 				// 	return 1;
@@ -104,7 +104,7 @@ class AStar {
 				// }
 				return a.f - b.f;
 			});
-			
+
 			currentNode = this._openList.shift() as TileNode;
 
 		}
@@ -114,7 +114,7 @@ class AStar {
 		return true;
 	}
 
-	
+
 
 	public isOpen(node: TileNode): Boolean {
 		for (var i: number = 0; i < this._openList.length; i++) {
@@ -123,10 +123,10 @@ class AStar {
 			}
 		}
 		return false;
-			//return this._openList.indexOf(node) > 0 ? true : false;
+		//return this._openList.indexOf(node) > 0 ? true : false;
 	}
 
-	
+
 
 	public isClosed(node: TileNode): Boolean {
 		for (var i: number = 0; i < this._closedList.length; i++) {
@@ -135,9 +135,9 @@ class AStar {
 			}
 		}
 		return false;
-//return this._closedList.indexOf(node) > 0 ? true : false;
+		//return this._closedList.indexOf(node) > 0 ? true : false;
 	}
-	
+
 
 
     public buildPath(): void {

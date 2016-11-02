@@ -116,11 +116,11 @@ class Main extends egret.DisplayObjectContainer {
      * 创建游戏场景
      * Create a game scene
      */
-    map: doMap;
+    //map: doMap;
     
     private createGameScene(): void {
-        this.map = new doMap();
-        this.addChild(this.map);
+        var map:doMap = new doMap();
+        this.addChild(map);
         // var player = new egret.Bitmap();
         // player.texture=RES.getRes("chara_jpg");
         // this.addChild(player);
@@ -129,11 +129,11 @@ class Main extends egret.DisplayObjectContainer {
         chara.idle();
         
         this.stage.addEventListener(egret.TouchEvent.TOUCH_TAP, function (e: egret.TouchEvent): void {
-            var startx: number = Math.floor((chara._body.x) / 50);
-            var starty: number = Math.floor(chara._body.y / 50);
-            var endx: number = Math.floor(e.localX / 50);
-            var endy: number = Math.floor(e.localY / 50);
-            var path: TileNode[] = this.map.astarPath(startx - 1, starty, endx, endy);
+            var startx: number = Math.floor((chara._body.x) / 100);
+            var starty: number = Math.floor(chara._body.y / 100);
+            var endx: number = Math.floor(e.localX / 100);
+            var endy: number = Math.floor(e.localY / 100);
+            var path: TileNode[] = map.astarPath(startx, starty, endx, endy);
             if (path.length > 0) {
                 chara.move(e.localX, e.localY, path);
             }

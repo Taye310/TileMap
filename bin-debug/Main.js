@@ -96,9 +96,14 @@ var Main = (function (_super) {
             this.loadingView.setProgress(event.itemsLoaded, event.itemsTotal);
         }
     };
+    /**
+     * 创建游戏场景
+     * Create a game scene
+     */
+    //map: doMap;
     p.createGameScene = function () {
-        this.map = new doMap();
-        this.addChild(this.map);
+        var map = new doMap();
+        this.addChild(map);
         // var player = new egret.Bitmap();
         // player.texture=RES.getRes("chara_jpg");
         // this.addChild(player);
@@ -106,11 +111,11 @@ var Main = (function (_super) {
         this.addChild(chara);
         chara.idle();
         this.stage.addEventListener(egret.TouchEvent.TOUCH_TAP, function (e) {
-            var startx = Math.floor((chara._body.x) / 50);
-            var starty = Math.floor(chara._body.y / 50);
-            var endx = Math.floor(e.localX / 50);
-            var endy = Math.floor(e.localY / 50);
-            var path = this.map.astarPath(startx - 1, starty, endx, endy);
+            var startx = Math.floor((chara._body.x) / 100);
+            var starty = Math.floor(chara._body.y / 100);
+            var endx = Math.floor(e.localX / 100);
+            var endy = Math.floor(e.localY / 100);
+            var path = map.astarPath(startx, starty, endx, endy);
             if (path.length > 0) {
                 chara.move(e.localX, e.localY, path);
             }
